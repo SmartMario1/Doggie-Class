@@ -1,11 +1,5 @@
 ﻿using Sandbox;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using TerrorTown;
 using TTT_Classes;
 
 namespace SmartMario1Classes
@@ -277,20 +271,20 @@ namespace SmartMario1Classes
 				if (attacker is TerrorTown.Player attackply && DogOwner != attackply)
 				{
 					OwnerKiller = attackply;
-					SetMaterialOverride( Material.Load( "materials/angrydog.vmat" ) );
+					//SetMaterialOverride( Material.Load( "materials/angrydog.vmat" ) );
 					State = "attacking_player";
 					LastAttack = 0;
 				}
 				else
 				{
-					SetMaterialOverride( Material.Load( "materials/saddog.vmat" ) );
+					//SetMaterialOverride( Material.Load( "materials/saddog.vmat" ) );
 					State = "crying";
 				}
 				return;
 			}
 			if (ply == OwnerKiller && State == "attacking_player")
 			{
-				SetMaterialOverride( Material.Load( "materials/saddog.vmat" ) );
+				//SetMaterialOverride( Material.Load( "materials/saddog.vmat" ) );
 				State = "crying";
 				return;
 			}
