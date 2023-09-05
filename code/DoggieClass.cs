@@ -1,5 +1,6 @@
 ﻿using Sandbox;
 using System.Linq;
+using TerrorTown;
 using TTT_Classes;
 
 namespace SmartMario1Classes
@@ -36,9 +37,9 @@ namespace SmartMario1Classes
 		protected int CurrentPathSegment;
 		protected TimeSince TimeSinceGeneratedPath = 0;
 
-		const float MOVEMENT_SPEED = 1.8f;
+		const float MOVEMENT_SPEED = 1.85f;
 		const float ATTACK_RANGE = 50f;
-		const float ATTACK_COOLDOWN = 2.5f;
+		const float ATTACK_COOLDOWN = 2.0f;
 		const float ATTACK_DAMAGE = 25f;
 
 		[GameEvent.Tick.Server]
@@ -271,20 +272,20 @@ namespace SmartMario1Classes
 				if (attacker is TerrorTown.Player attackply && DogOwner != attackply)
 				{
 					OwnerKiller = attackply;
-					//SetMaterialOverride( Material.Load( "materials/angrydog.vmat" ) );
+					SetMaterialOverride( "materials/angrydog.vmat" );
 					State = "attacking_player";
 					LastAttack = 0;
 				}
 				else
 				{
-					//SetMaterialOverride( Material.Load( "materials/saddog.vmat" ) );
+					SetMaterialOverride( "materials/saddog.vmat" );
 					State = "crying";
 				}
 				return;
 			}
 			if (ply == OwnerKiller && State == "attacking_player")
 			{
-				//SetMaterialOverride( Material.Load( "materials/saddog.vmat" ) );
+				SetMaterialOverride( "materials/saddog.vmat" );
 				State = "crying";
 				return;
 			}
