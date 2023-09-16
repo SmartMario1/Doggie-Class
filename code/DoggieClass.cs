@@ -272,20 +272,20 @@ namespace SmartMario1Classes
 				if (attacker is TerrorTown.Player attackply && DogOwner != attackply)
 				{
 					OwnerKiller = attackply;
-					SetMaterialOverride( "materials/angrydog.vmat" );
+					//SetMaterialOverride( "materials/angrydog.vmat" );
 					State = "attacking_player";
 					LastAttack = 0;
 				}
 				else
 				{
-					SetMaterialOverride( "materials/saddog.vmat" );
+					//SetMaterialOverride( "materials/saddog.vmat" );
 					State = "crying";
 				}
 				return;
 			}
 			if (ply == OwnerKiller && State == "attacking_player")
 			{
-				SetMaterialOverride( "materials/saddog.vmat" );
+				//SetMaterialOverride( "materials/saddog.vmat" );
 				State = "crying";
 				return;
 			}
